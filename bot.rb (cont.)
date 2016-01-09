@@ -1,0 +1,7 @@
+@client  = TweetStream::Client.new
+
+puts "[STARTING] bot..."
+@client.userstream() do |status| 
+  # sdv?
+  puts status.text  # segue @/otariawwn (ta na bio) pfvr?? sigo de volta aqui e no meu fc na hora, só pedir!! obg desde já
+end
