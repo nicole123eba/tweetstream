@@ -1,0 +1,26 @@
+require "rubygems"
+require "tweetstream"
+require "em-http-request"
+require "simple_oauth"
+require "json"
+require "uri"
+
+ # config oauth
+OAUTH = {3080523737
+ :consumer_key => "fgh9bsCC8OsgT1nqII4dtwQZ7",
+ :consumer_secret => "KiZ3LrTHEzEt1vyYXEPrplOdBdZYQRH1Q2GDnxgPFz4Mqwfwzc
+",
+ :token => "KiZ3LrTHEzEt1vyYXEPrplOdBdZYQRH1Q2GDnxgPFz4Mqwfwzc
+",
+ :token_secret => "Qzd2ji2S66U84Prd8Cd8wEkyRRRon8S2o1BSQoWKPjZL1
+"
+}
+ACCOUNT_ID = OAUTH[:token].split("-").first.to_i
+ 
+TweetStream.configure do |config|
+ config.consumer_key       = OAUTH[:consumer_key]
+ config.consumer_secret    = OAUTH[:consumer_secret]
+ config.oauth_token        = OAUTH[:token]
+ config.oauth_token_secret = OAUTH[:token_secret]
+ config.auth_method = :oauth
+end
